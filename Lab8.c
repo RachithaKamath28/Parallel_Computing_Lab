@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     MPI_Scatter(data, 1, MPI_INT, &recv, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    printf("Process %d received: %d\n",rank,recv);
+    printf("Process %d received: %d\n",rank+1,recv);
     recv += 1;
 
     MPI_Gather(&recv, 1, MPI_INT, data, 1, MPI_INT, 0, MPI_COMM_WORLD);
